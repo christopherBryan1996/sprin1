@@ -4,9 +4,164 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Encriptador</title>
+    <link href="encriptador.css" rel="stylesheet" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function alertError(){
+            Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Debes escribir algo'
+            })
+        }
+        function alertCopy(){
+            Swal.fire({
+            icon: 'success',
+            title: 'Copiado con exito',
+            showConfirmButton: false,
+            timer: 1500
+            })
+        }
+        function encriptar(text){
+            let newText=''
+            for (let i=0;i<text.length;i++){
+                if(text[i]==='a'){
+                    newText=newText+'ai'
+                }
+                else if(text[i]==='e'){
+                    newText=newText+'enter'
+                }
+                else if(text[i]==='i'){
+                    newText=newText+'imes'
+                }
+                else if(text[i]==='o'){
+                    newText=newText+'ober'
+                }
+                else if(text[i]==='u'){
+                    newText=newText+'ufat'
+                }else{
+                    newText=newText+text[i]
+                }
+            }
+            return newText
+        }
+        function desencriptar(text){
+            let newText=''
+            for(let i=0;i<text.length;i++){
+                if(text[i]==='a'){
+                    newText=newText+text[i]
+                    i=i+1
+                }
+                else if(text[i]==='e'){
+                    newText=newText+text[i]
+                    i=i+4
+                }
+                else if(text[i]==='i'){
+                    newText=newText+text[i]
+                    i=i+3
+                }
+                else if(text[i]==='o'){
+                    newText=newText+text[i]
+                    i=i+3
+                }
+                else if(text[i]==='u'){
+                    newText=newText+text[i]
+                    i=i+3
+                }else{
+                    newText=newText+text[i]
+                }
+            }
+            return newText
+        }
+        function ocultarMostrar(sinOp,conOp){
+            document.getElementById('sin').style.display =sinOp
+            document.getElementById('con').style.display =conOp
+        }
+        function mostrar(text){
+            ocultarMostrar('none','flex')
+            document.getElementById('mostrar').innerText=text
+        }
+        function copy() {
+            let copyText = document.getElementById('mostrar');
+            console.log(copyText)
+            copyText.select();
+            document.execCommand("copy");
+        }
+        $(document).ready(function(){
+            $('#encriptar').click(function(){
+                const contenido= $('#msg').val();
+                const minusculas= contenido.toLowerCase()
+                if(!contenido){
+                    alertError()
+                    ocultarMostrar('flex','none')
+                }else{
+                    const encr=encriptar(minusculas)
+                    mostrar(encr)
+                }
+                $('#msg').val('');
+            })
+        })
+        $(document).ready(function(){
+            $('#desencriptar').click(function(){
+                const contenido= $('#msg').val();
+                const minusculas= contenido.toLowerCase()
+                if(!contenido){
+                    alertError()
+                    ocultarMostrar('flex','none')
+                }else{
+                    const dec=desencriptar(minusculas)
+                    mostrar(dec)
+                }
+                $('#msg').val('');
+            })
+        })
+        $(document).ready(function(){
+            $("#copy").click(function(){
+                var codigoACopiar = document.getElementById('mostrar');
+                var seleccion = document.createRange();
+                seleccion.selectNodeContents(codigoACopiar);
+                window.getSelection().removeAllRanges();
+                window.getSelection().addRange(seleccion);
+                var res = document.execCommand('copy');
+                window.getSelection().removeRange(seleccion);
+                alertCopy()
+            })
+        })
+    </script>
 </head>
 <body>
-    
+    <div class="contenedorGlobal">
+        <div class="contenedorIzqu">
+            <div class="posiLogo">
+                <img class="logo" src="img\logo.png" alt="logo">
+            </div>
+            <div class="posiMsg">
+                <textarea class="msgTxt" id="msg" rows="10" cols="50" placeholder="Ingrese el texto aqui" ></textarea>
+            </div>
+            <div class="posibotton">
+                <div class="posiAlert">
+                    <img class="imgSE" src="img\alerta.png" alt="signo de exclamacion" >
+                    <p class="txtAlert">Sin acentos</p>
+                </div>
+                <div class="posiButton">
+                    <button class="btnEncri" id="encriptar"><p class="btnTxt">Encriptar</p></button>
+                    <button class="btnEncri" id="desencriptar" style="background-color:#D8DFE8 ;" >Desencriptar</button>
+                </div>
+            </div>
+        </div>
+        <div class="contenedorDerec">
+            <div class="marge" id="sin">
+                <img class="imgMuneco" src="img\Muneco.png" alt="muñeco">
+                <p class="txttitulo">Ningún mensaje fue encontrado</p>
+                <p class="txtsub">Ingresa el texto que desees encriptar o desencriptar.</p>
+            </div>
+            <div class="marge" id="con" style="display: none;">
+                <p class="txtmost" id="mostrar"></p>
+                <button class="btnEncri" id="copy" style="background-color:#D8DFE8 ;">Copiar</button>
+            </div>
+        </div class>
+    </div>
 </body>
 </html>

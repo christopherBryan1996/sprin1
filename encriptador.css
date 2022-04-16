@@ -1,0 +1,222 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+body{
+    background-color: #E5E5E5;
+}
+
+.contenedorGlobal{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.contenedorIzqu{
+    width: 66%;
+    height: 100%;
+}
+
+.posiLogo{
+    height: 82px;
+    position: relative;
+    left: 65px;
+    display: flex;
+    align-items: center;
+}
+
+.logo{
+    height: 48px;
+    width: 31.085588455200195px;
+}
+
+.posiMsg{
+    height: 352px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    top: 55px;
+}
+
+.msgTxt{
+    position: absolute;
+    width: 584px;
+    height: 270px;
+    /* left: 241px; */
+    /* top: 135px; */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 150%;
+    color: #0A3871;
+    border: none;
+    background-color: #E5E5E5
+}
+
+.posibotton{
+    height: 153px;
+    position: relative;
+    left: 65px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+.posiAlert{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    left: 154px;
+}
+
+.imgSE{
+    height: 16px;
+    width: 16px;
+}
+.txtAlert{
+    position: static;
+    width: 205px;
+    height: 18px;
+    left: 24px;
+    top: 0px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    color: #495057;
+    opacity: 0.8;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 0px 8px;
+}
+
+.posiButton{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.btnEncri{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 24px;
+    position: static;
+    width: 263px;
+    height: 58px;
+    left: 0px;
+    top: 0px;
+    background: #0A3871;
+    border-radius: 24px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 24px;
+    justify-content: center;
+}
+.btnTxt{
+    position: static;
+    width: 280px;
+    height: 19px;
+    left: 24px;
+    top: 24px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+
+    /* White */
+
+    color: #FFFFFF;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 1;
+    margin: 0px 8px;
+}
+
+.contenedorDerec{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.marge{
+    position: absolute;
+    width: 30%;
+    height: 87%;
+    left: 829px;
+    top: 40px;
+    background: #FFFFFF;
+    box-shadow: 0px 24px 32px -8px rgb(0 0 0 / 8%);
+    border-radius: 32px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.imgMuneco{
+    height: 302px;
+    width: 334px;
+}
+
+.txttitulo{
+    width: 336px;
+    height: 58px;
+    /* left: 0px; */
+    /* top: 0px; */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 120%;
+    text-align: center;
+    color: #343A40;
+
+}
+
+.txtsub{
+    width: 336px;
+    height: 48px;
+    /* left: 0px; */
+    /* top: 74px; */
+    font-family: 'Inter';
+    font-style: normal;
+    /* font-weight: 400; */
+    /* font-size: 16px; */
+    /* line-height: 150%; */
+    /* text-align: center; */
+    color: #495057;
+}
+.txtmost{
+    position: sticky;
+    width: 361px;
+    /* height: 781px; */
+    /* left: 1032px; */
+    top: 72px;
+    font-family: 'Inter';
+    /* font-style: normal; */
+    font-weight: 400;
+    /* font-size: 24px; */
+    line-height: 150%;
+    color: #495057;
+}
